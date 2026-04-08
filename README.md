@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Finance Guide 🇮🇳 💰
 
-## Getting Started
+Finance Guide is a free, AI-powered personal budget planner built specifically for Indian households. It helps users calculate personalized monthly budget breakdowns, provides actionable financial coaching via Google's Gemini AI, and generates step-by-step roadmaps to reach financial stability.
 
-First, run the development server:
+![Finance Guide](./public/og-image.png)
 
-```bash
+## ✨ Features
+
+- **Personalized Budget Calculator**: Input your salary, city, family size, housing, and transport to get a highly accurate, weighted allocation of your income across essential categories.
+- **AI Financial Coach**: Powered by Google's Gemini 2.0 Flash Lite API. Ask questions about your budget in plain language and get jargon-free, personalized advice.
+- **Poverty Escape Roadmap**: An AI-generated 6-month actionable plan to build an emergency fund, eliminate debt, and improve financial security.
+- **Built for India**: Calibrated for realistic Indian scenarios, cost of living in metro/tier-2 cities, and typical family structures. 
+- **100% Privacy-First**: No databases, no tracking. All budget calculations happen in your browser.
+- **High-Quality PDF Exports**: Export your generated budget, roadmap, and AI summary symmetrically styled to match the website using `jsPDF` + `html2canvas`.
+- **Fully SEO Optimized**: Complete Core Web Vitals optimizations, semantic structured JSON-LD data, dynamic open-graph images, and dynamic sitemaps targeting specific high-intent keywords.
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Next.js 16+](https://nextjs.org/) (App Router)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+- **AI Integration**: [@google/generative-ai](https://www.npmjs.com/package/@google/generative-ai) (Server-Side Implementation)
+- **PDF Generation**: [jsPDF](https://github.com/parallax/jsPDF) & [html2canvas](https://html2canvas.hertzen.com/)
+- **Icons & Animations**: [Lucide React](https://lucide.dev/) & [Framer Motion](https://www.framer.com/motion/)
+
+## 🚀 Getting Started
+
+To run the project locally, follow these steps:
+
+### 1. Clone the repository
+\`\`\`bash
+git clone https://github.com/Soumik22-tech/Finance-guide.git
+cd Finance-guide
+\`\`\`
+
+### 2. Install Dependencies
+\`\`\`bash
+npm install
+\`\`\`
+
+### 3. Set Up Environment Variables
+Create a \`.env.local\` file in the root of your project and include your Gemini API key:
+\`\`\`env
+GEMINI_API_KEY=your_gemini_api_key_here
+\`\`\`
+
+> **Note**: The API key is fully secured because the application routes all AI interactions through a server-side Next.js route handler (`/api/ask-gemini/route.ts`). It is never exposed to the client.
+
+### 4. Run the Development Server
+\`\`\`bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+\`\`\`
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the application.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📁 Key Project Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+\`\`\`text
+Finance-guide
+├── public/                 # Static assets, OpenGraph images, and PWA manifest
+├── src/
+│   ├── app/
+│   │   ├── api/ask-gemini/ # Server-side endpoint protecting the Gemini API key
+│   │   ├── blog/           # Dynamic blog engine with SEO metadata
+│   │   ├── components/     # Core UI components (BudgetForm, AiCoach, Navbar, etc.)
+│   │   ├── faqs/           # FAQ pages with structured JSON-LD
+│   │   ├── lib/            # Utilities (AI client router, budget algorithms, PDF exporter)
+│   │   └── types/          # Global TypeScript interfaces
+└── next.config.ts          # Core Web Vitals optimization policies
+\`\`\`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🔒 Security & AI Quotas
 
-## Learn More
+This application uses the **Gemini Free Tier**. To prevent quota exhaustion:
+- The backend features a secure, in-memory **Rate Limiter** restricting executions to 10 requests per minute per IP.
+- The UI maintains a strict 6-second queue gap between messages.
+- The `GEMINI_API_KEY` is loaded directly onto the Next.js node server, making it impossible to scrape.
 
-To learn more about Next.js, take a look at the following resources:
+## ©️ License & Author
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Developed by **Soumik Majumder**  
+[LinkedIn Profile](https://www.linkedin.com/in/soumik-majumder-b04343333/) | [GitHub Profile](https://github.com/Soumik22-tech)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This project is licensed under the [MIT License](LICENSE) — see the LICENSE file for details.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Finance Guide © 2026. All rights reserved.
