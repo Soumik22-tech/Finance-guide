@@ -7,7 +7,7 @@ Finance Guide is a free, AI-powered personal budget planner built specifically f
 ## ✨ Features
 
 - **Personalized Budget Calculator**: Input your salary, city, family size, housing, and transport to get a highly accurate, weighted allocation of your income across essential categories.
-- **AI Financial Coach**: Powered by Google's Gemini 2.0 Flash Lite API. Ask questions about your budget in plain language and get jargon-free, personalized advice.
+- **AI Financial Coach**: Powered by Google's Gemini 2.5 Flash API. Ask questions about your budget in plain language and get jargon-free, personalized advice.
 - **Poverty Escape Roadmap**: An AI-generated 6-month actionable plan to build an emergency fund, eliminate debt, and improve financial security.
 - **Built for India**: Calibrated for realistic Indian scenarios, cost of living in metro/tier-2 cities, and typical family structures. 
 - **100% Privacy-First**: No databases, no tracking. All budget calculations happen in your browser.
