@@ -3,8 +3,12 @@ import React, { useState, useEffect, useRef } from 'react';
 import { BudgetResult as BudgetResultType } from '../types/budget';
 import { exportBudgetPDF } from "@/app/lib/exportPDF";
 import BudgetPDFTemplate from "@/app/components/BudgetPDFTemplate";
+import CityBenchmark from "@/app/components/CityBenchmark";
+import SavingsGoalSetter from "@/app/components/SavingsGoalSetter";
+import GovtSchemeMatcher from "@/app/components/GovtSchemeMatcher";
 import AiCoach from './AiCoach';
 import PovertyEscapeRoadmap from './PovertyEscapeRoadmap';
+import DebtTrapDetector from "@/app/components/DebtTrapDetector";
 import { askGemini } from '../lib/gemini';
 
 // ── Static tooltips for each budget category ──────────────────────────────────
@@ -109,13 +113,13 @@ Rules:
         </button>
       )}
 
-      {summaryLoading && (
-        <div className="mt-2 space-y-2">
-          <div className="h-3 w-full animate-pulse rounded bg-[#9FE1CB]" />
-          <div className="h-3 w-4/5 animate-pulse rounded bg-[#9FE1CB]" />
-          <div className="h-3 w-3/5 animate-pulse rounded bg-[#9FE1CB]" />
-        </div>
-      )}
+        {summaryLoading && (
+          <div className="mt-2 space-y-2">
+            <div className="h-3 w-full animate-pulse rounded bg-[#9FE1CB]" />
+            <div className="h-3 w-4/5 animate-pulse rounded bg-[#9FE1CB]" />
+            <div className="h-3 w-3/5 animate-pulse rounded bg-[#9FE1CB]" />
+          </div>
+        )}
 
       {summaryText && !summaryLoading && (
         <p className="mt-1 text-sm leading-relaxed text-[#1d3557]">{summaryText}</p>
@@ -149,6 +153,9 @@ export default function BudgetResult({ result, onReset }: Props) {
         <h2 className="text-3xl font-bold text-[#1d3557] mb-2">{result.name}'s Monthly Budget</h2>
         <p className="text-gray-500">Your personalized monthly budget breakdown</p>
       </div>
+
+      {/* ── Debt Trap Detector ── */}
+      <DebtTrapDetector result={result} />
 
       {/* ── AI Summary (auto-generates on mount) ── */}
       <AiSummaryCard result={result} onSummaryGenerated={setPdfSummary} />
@@ -188,6 +195,15 @@ export default function BudgetResult({ result, onReset }: Props) {
           </span>
         </div>
       </div>
+
+      {/* City Benchmark — below budget cards, above AI coach */}
+      <CityBenchmark result={result} />
+
+      {/* Government Scheme Matcher */}
+      <GovtSchemeMatcher result={result} />
+
+      {/* Smart Savings Goal Setter */}
+      <SavingsGoalSetter result={result} />
 
       <AiCoach budgetResult={result} />
 

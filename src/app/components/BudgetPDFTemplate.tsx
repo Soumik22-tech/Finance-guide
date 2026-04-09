@@ -2,6 +2,7 @@
 
 import React from "react";
 import { BudgetResult } from "@/app/types/budget";
+import { calculateTotalDebtBurden } from "@/app/lib/loanCalculator";
 
 interface Props {
   result: BudgetResult;
@@ -36,6 +37,8 @@ export default function BudgetPDFTemplate({ result, summaryText, roadmap, goal }
   const breakdownEntries = Object.entries(result.breakdown).filter(
     ([key]) => key !== "TOTAL"
   );
+  
+  const burden = result.liabilityProfile ? calculateTotalDebtBurden(result.liabilityProfile.emis, result.salary) : null;
 
   return (
     <div
@@ -199,6 +202,65 @@ export default function BudgetPDFTemplate({ result, summaryText, roadmap, goal }
             </div>
           </div>
         </div>
+
+        {/* DEBT SECTION */}
+        {burden && burden.severity !== "safe" && (
+          <div style={{
+            backgroundColor: "#fff",
+            borderRadius: "12px",
+            border: "1px solid #dfe6f3",
+            borderLeft: `4px solid ${burden.severity === 'critical' ? '#A32D2D' : burden.severity === 'danger' ? '#E24B4A' : '#EF9F27'}`,
+            marginBottom: "32px",
+            overflow: "hidden"
+          }}>
+            <div style={{
+              backgroundColor: burden.severity === 'critical' ? '#F5D5D5' : burden.severity === 'danger' ? '#FCEBEB' : '#FAEEDA',
+              padding: "16px 20px",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center"
+            }}>
+              <div>
+                <span style={{
+                  display: "inline-block",
+                  padding: "4px 8px",
+                  borderRadius: "4px",
+                  fontSize: "11px",
+                  fontWeight: "bold",
+                  backgroundColor: "rgba(255,255,255,0.8)",
+                  color: burden.severity === 'critical' ? '#7B0000' : burden.severity === 'danger' ? '#A32D2D' : '#854F0B',
+                  marginBottom: "8px",
+                  textTransform: "uppercase"
+                }}>{burden.severity} DEBT BURDEN</span>
+                <div style={{ fontWeight: "bold", color: "#0a192f", fontSize: "16px" }}>Debt Portfolio Analysis</div>
+              </div>
+              <div style={{ textAlign: "right" }}>
+                <div style={{ fontSize: "28px", fontWeight: "bold", color: burden.severity === 'critical' ? '#7B0000' : burden.severity === 'danger' ? '#A32D2D' : '#854F0B' }}>
+                  {burden.debtToIncomeRatio}%
+                </div>
+                <div style={{ fontSize: "9px", color: "#8892b0", textTransform: "uppercase" }}>of income on EMIs</div>
+              </div>
+            </div>
+            
+            <div style={{ padding: "20px", display: "flex", gap: "32px", flexWrap: "wrap" }}>
+              <div>
+                <div style={{ fontSize: "10px", color: "#8892b0", textTransform: "uppercase", fontWeight: "bold", marginBottom: "4px" }}>Total EMS</div>
+                <div style={{ fontSize: "16px", fontWeight: "bold", color: "#0a192f" }}>₹{burden.totalMonthlyEMI.toLocaleString()}</div>
+              </div>
+              <div>
+                <div style={{ fontSize: "10px", color: "#8892b0", textTransform: "uppercase", fontWeight: "bold", marginBottom: "4px" }}>Active Loans</div>
+                <div style={{ fontSize: "16px", fontWeight: "bold", color: "#0a192f" }}>{result.liabilityProfile?.emis.length || 0}</div>
+              </div>
+              <div>
+                <div style={{ fontSize: "10px", color: "#8892b0", textTransform: "uppercase", fontWeight: "bold", marginBottom: "4px" }}>Est. Total Interest</div>
+                <div style={{ fontSize: "16px", fontWeight: "bold", color: "#E24B4A" }}>₹{Math.round(burden.totalInterestRemaining).toLocaleString()}</div>
+              </div>
+            </div>
+            <div style={{ padding: "0 20px 20px 20px", fontSize: "12px", color: "#1d3557", fontStyle: "italic" }}>
+              Log in to the Finance Guide app to view your full debt avalanche strategy and AI exit plan.
+            </div>
+          </div>
+        )}
 
         {/* POVERTY ESCAPE ROADMAP — only if available */}
         {roadmap && roadmap.length > 0 && (

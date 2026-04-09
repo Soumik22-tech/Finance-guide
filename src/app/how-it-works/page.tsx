@@ -48,20 +48,34 @@ const steps = [
   },
   {
     number: "04",
+    title: "Discover Government Schemes",
+    description:
+      "Our AI matcher instantly scans Indian government schemes (like PMJDY, PMAY, SSY) and shows you exactly what you qualify for based on your profile.",
+    icon: "🏛️",
+  },
+  {
+    number: "05",
+    title: "Set Risk-Adjusted Goals",
+    description:
+      "Plan your financial future with our smart savings goal setter. Choose between Safe, Moderate, or Aggressive investment profiles tailored to your monthly budget.",
+    icon: "🎯",
+  },
+  {
+    number: "06",
     title: "Talk to your AI Financial Coach",
     description:
       "Ask questions about your budget in plain language. Our AI coach explains what each number means, flags risky spending, and gives one actionable tip every time.",
     icon: "🤖",
   },
   {
-    number: "05",
+    number: "07",
     title: "Get your 6-Month Escape Roadmap",
     description:
       "The AI generates a step-by-step monthly plan to build savings, reduce debt, and reach financial stability — all based on your real salary and city costs.",
     icon: "🗺️",
   },
   {
-    number: "06",
+    number: "08",
     title: "Download your plan as PDF",
     description:
       "Export your entire budget plan — including the AI summary and roadmap — as a beautifully designed PDF you can save, print, or share.",
