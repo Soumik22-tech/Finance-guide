@@ -11,7 +11,6 @@ Finance Guide is a free, AI-powered personal budget planner built specifically f
 | 02 — User Input Section |
 | :---: |
 |<img width="1898" height="866" alt="Screenshot 2026-04-21 183956" src="https://github.com/user-attachments/assets/1c81840d-d934-45d4-ad20-f2df4e8d2d99" />|
-
 |<img width="1896" height="865" alt="Screenshot 2026-04-21 184012" src="https://github.com/user-attachments/assets/2c312ddc-21b5-41f9-9cac-35bffda46a3f" />|
 
 | 03 — Debt Portfolio Analysis |
@@ -33,7 +32,6 @@ Finance Guide is a free, AI-powered personal budget planner built specifically f
 | 07 — Poverty Escape Roadmap |
 | :---: |
 |<img width="1882" height="853" alt="image" src="https://github.com/user-attachments/assets/d7ca6e14-0951-42c0-9190-744f19bb7ee7" />|
-
 |<img width="1899" height="863" alt="Screenshot 2026-04-21 184238" src="https://github.com/user-attachments/assets/7d0fb2c4-cff0-4a86-a863-7bbb71cac19d" />|
 
 ## ✨ Features
