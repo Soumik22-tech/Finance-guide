@@ -8,6 +8,34 @@ Finance Guide is a free, AI-powered personal budget planner built specifically f
 | :---: |
 | <img width="1901" height="864" alt="Screenshot 2026-04-21 193350" src="https://github.com/user-attachments/assets/6b6b69e4-dd80-4c66-9159-65d335364b27" />| 
 
+| 02 — User Input Section |
+| :---: |
+|<img width="1898" height="866" alt="Screenshot 2026-04-21 183956" src="https://github.com/user-attachments/assets/1c81840d-d934-45d4-ad20-f2df4e8d2d99" />|
+
+|<img width="1896" height="865" alt="Screenshot 2026-04-21 184012" src="https://github.com/user-attachments/assets/2c312ddc-21b5-41f9-9cac-35bffda46a3f" />|
+
+| 03 — Debt Portfolio Analysis |
+| :---: |
+|<img width="1899" height="860" alt="Screenshot 2026-04-21 184038" src="https://github.com/user-attachments/assets/bc703f27-ca20-4888-b046-0cfbd69bc612" />|
+
+| 04 — Budget Breakdown |
+| :---: |
+|<img width="1894" height="863" alt="Screenshot 2026-04-21 184101" src="https://github.com/user-attachments/assets/0efabb7b-4279-4e70-bd86-a4283561f7c5" />|
+
+| 05 — Govrnment Scheme Matcher |
+| :---: |
+|<img width="1900" height="868" alt="Screenshot 2026-04-21 184201" src="https://github.com/user-attachments/assets/5cf29fa2-386c-4abb-9220-87d552cb9c65" />|
+
+| 06 — AI Financial Coach |
+| :---: |
+|<img width="1900" height="860" alt="Screenshot 2026-04-21 184222" src="https://github.com/user-attachments/assets/ec93247c-d4e4-47ad-868e-178bf8ff80c0" />|
+
+| 07 — Poverty Escape Roadmap |
+| :---: |
+|<img width="1882" height="853" alt="image" src="https://github.com/user-attachments/assets/d7ca6e14-0951-42c0-9190-744f19bb7ee7" />|
+
+|<img width="1899" height="863" alt="Screenshot 2026-04-21 184238" src="https://github.com/user-attachments/assets/7d0fb2c4-cff0-4a86-a863-7bbb71cac19d" />|
+
 ## ✨ Features
 
 - **Personalized Budget Calculator**: Input your salary, city, family size, housing, and transport to get a highly accurate, weighted allocation of your income across essential categories.
@@ -60,19 +88,22 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## 📁 Key Project Structure
 
-\`\`\`text
-Finance-guide
-├── public/                 # Static assets, OpenGraph images, and PWA manifest
+```
+Finance-guide/
+├── public/                     # Static assets, OpenGraph images, and PWA manifest
 ├── src/
 │   ├── app/
-│   │   ├── api/ask-gemini/ # Server-side endpoint protecting the Gemini API key
-│   │   ├── blog/           # Dynamic blog engine with SEO metadata
-│   │   ├── components/     # Core UI components (BudgetForm, AiCoach, Navbar, etc.)
-│   │   ├── faqs/           # FAQ pages with structured JSON-LD
-│   │   ├── lib/            # Utilities (AI client router, budget algorithms, PDF exporter)
-│   │   └── types/          # Global TypeScript interfaces
-└── next.config.ts          # Core Web Vitals optimization policies
-\`\`\`
+│   │   ├── api/
+│   │   │   └── ask-gemini/     # Server-side endpoint protecting the Gemini API key
+│   │   ├── blog/               # Dynamic blog engine with SEO metadata
+│   │   ├── components/         # Core UI components (BudgetForm, AiCoach, Navbar, etc.)
+│   │   ├── faqs/               # FAQ pages with structured JSON-LD
+│   │   ├── lib/                # Utilities (AI client router, budget algorithms, PDF exporter)
+│   │   └── types/              # Global TypeScript interfaces
+│
+└── next.config.ts             # Core Web Vitals optimization policies
+```
+
 
 ## 🔒 Security & AI Quotas
 
