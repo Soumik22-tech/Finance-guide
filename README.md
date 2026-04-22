@@ -2,7 +2,11 @@
 
 Finance Guide is a free, AI-powered personal budget planner built specifically for Indian households. It helps users calculate personalized monthly budget breakdowns, provides actionable financial coaching via Google's Gemini AI, and generates step-by-step roadmaps to reach financial stability.
 
-![Finance Guide](./public/images.png)
+## 📸 Screenshots
+
+| 01 — Landing Page |
+| :---: |
+| <img width="1901" height="864" alt="Screenshot 2026-04-21 193350" src="https://github.com/user-attachments/assets/6b6b69e4-dd80-4c66-9159-65d335364b27" />| 
 
 ## ✨ Features
 
